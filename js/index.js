@@ -75,9 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector('.card');
 
     card.addEventListener('mouseenter', () => {
@@ -86,5 +84,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'rotateY(0deg)';
+    });
+
+    // Botón de instalación PWA y mensaje de soporte
+    let deferredPrompt;
+    const installBtn = document.getElementById('installPwaBtn');
+    const pwaMsg = document.getElementById('pwaMsg');
+    let pwaSupported = false;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'flex';
+        pwaSupported = true;
+        if (pwaMsg) pwaMsg.style.display = 'none';
+    });
+    installBtn && installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
+    });
+    window.addEventListener('appinstalled', () => {
+        installBtn.style.display = 'none';
+    });
+    // Mostrar advertencia si no es soportado
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            if (!pwaSupported) {
+                if (pwaMsg) pwaMsg.innerText = 'Tu navegador no soporta instalación como app o ya está instalada.';
+                if (pwaMsg) pwaMsg.style.display = 'block';
+            }
+        }, 2000);
     });
 });

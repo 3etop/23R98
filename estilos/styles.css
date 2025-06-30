@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../Image/backgraund/Nuevo\ background.png'); /* Ruta de la imagen de fondo */
+    background-image: url('../Image/backgraund/DeWatermark.ai_1751309049878.jpeg'); /* Ruta de la imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -10,11 +10,36 @@ body {
     overflow: hidden; /* Eliminar cualquier barra de scroll */
 }
 
+h2 {
+    color: rgb(240, 194, 43) !important;
+}
+
+h3{
+    color: #f3e6c1 !important;
+    text-align: center;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin: 20px 0; /* Espacio superior e inferior */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18); /* Sombra del texto */
+}
+
+p {
+    text-align: center;
+    color: #f3e6c1;
+    line-height: 1.7;
+    margin: 14px 0 14px 0;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: block;
+}
 /*eader___________________________________________________*/
 
 header {
     position: relative;
-    background-color: #000000;
+    background-color: #000000c0;
     box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.651); 
     padding: 2px 0;
     text-align: center;
@@ -25,6 +50,7 @@ header .logo{
     max-height: auto;
     margin: 0 auto; /* Centrar la imagen del logo */
     display: block; /* Asegura que la imagen esté en bloque para centrarla */
+    border-radius: 8px;
 }
 
 header .button-link{
@@ -40,27 +66,70 @@ header .button-link{
     filter: drop-shadow(0px 4px 6px rgba(224, 218, 218, 0.562)); /* Sombra del botón */
 }
 
-header .whatsapp-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+/* Estilo clásico simple para el botón flotante de WhatsApp */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 35px;
+    right: 5px;
     background: #25d366;
     color: #fff !important;
-    font-size: 1.4rem; /* Tamaño de ícono más pequeño */
+    font-size: 2rem;
     border-radius: 50%;
-    padding: 6px 8px;   /* Padding reducido */
-    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
-    z-index: 30;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
+    padding: 10px 12px;
+    z-index: 2000;
     text-decoration: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: inline-block;
+    transition: none;
 }
-header .whatsapp-icon:hover {
+.whatsapp-icon:hover {
     background: #128c7e;
-    transform: scale(1.1);
     color: #fff;
+    transform: none;
+    box-shadow: none;
+}
+.whatsapp-icon i {
+    font-size: 2rem;
+    line-height: 1;
+    display: inline-block;
+    align-items: unset;
+    justify-content: unset;
+}
+
+/*Botón flotante moderno y responsivo para instalar la app */
+#installPwaBtn {
+    position: fixed;
+    height: 40px;
+    bottom: 35px;
+    left: 5px;
+    z-index: 3000;
+    padding: 14px 22px;
+    background: linear-gradient(90deg, #f8cc52 60%, #ffe9b0 100%);
+    color: #222;
+    border: none;
+    border-radius: 32px;
+    box-shadow: 0 4px 16px 2px rgba(37, 37, 37, 0.795);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    display: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    outline: none;
+    gap: 10px;
+    align-items: center;
+    display: flex;
+}
+#installPwaBtn:hover, #installPwaBtn:focus {
+    background: linear-gradient(90deg, #ffe9b0 0%, #f8cc52 100%);
+    box-shadow: 0 8px 24px 4px rgba(248, 204, 82, 0.25);
+    transform: scale(1.06);
+}
+#installPwaBtn i {
+    font-size: 1.5rem;
+    color: #222;
 }
 
 /*Swipper_____________________________________________________________________________________*/
@@ -124,19 +193,20 @@ header .whatsapp-icon:hover {
 }
 
 .swiper-pagination-bullet {
-    max-width: 12px !important; /* Ancho de los puntos */
-    max-height: 12px !important; /* Altura de los puntos */
+    max-width: 15px !important; /* Ancho de los puntos */
+    max-height: 15px !important; /* Altura de los puntos */
     background: #ffffff !important; /* Color de los puntos */
     opacity: 0.7 !important; /* Transparencia de los puntos */
     transition: opacity 0.3s, transform 0.3s !important; /* Animación al interactuar */
-    filter: drop-shadow(0px 4px 6px rgb(224, 218, 218)) !important; /* Sombra del botón "anterior" */
+    filter: drop-shadow(0px 4px 6px rgb(2, 1, 1)) !important; /* Sombra del botón "anterior" */
 
 }
 
 .swiper-pagination-bullet-active {
     background: #000000 !important; /* Color del punto activo */
+    border: 1px solid #f8cc52 !important; /* Borde del punto activo */
     opacity: 1 !important; /* Opacidad completa para el punto activo */
-    transform: scale(1.5) !important; /* Aumenta el tamaño del punto activo */
+    transform: scale(2) !important; /* Aumenta el tamaño del punto activo */
 }
 
 /*Pagina-1________________________________________________________________________________*/
@@ -147,9 +217,13 @@ header .whatsapp-icon:hover {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: #0000008f;
+    background-color: #000000a8;
     border-radius: 20px;
-    filter: drop-shadow(0px 4px 6px rgba(37, 33, 33, 0.651)); /* Sombra de la página */
+    border-color: #ffffff; /* Color del borde */
+    border-style: solid; /* Estilo del borde */ 
+    border-width: 0.1px; /* Ancho del borde */
+    box-shadow: 0px 4px 6px rgba(37, 33, 33, 0.904); /* Sombra de la página */
+    filter: drop-shadow(0px 4px 6px rgb(37, 33, 33)); /* Sombra de la página */
     max-height: calc(100vh - 120px); /* Asegura que no pase de 60px del top y bottom */
     margin-top: 60px; /* Espacio desde el borde superior */
     margin-bottom: 60px; /* Espacio desde el borde inferior */
@@ -169,6 +243,11 @@ header .whatsapp-icon:hover {
 }
 
 /*pagina-2___________________________________________________________*/
+
+.pagina-2 {
+    position: relative; /* Permite que el efecto hover funcione correctamente */
+    overflow: visible;
+}
 
 .pagina-2 .proyectos-lista {
     list-style-type: none; /* Elimina los puntos de la lista */
@@ -194,7 +273,23 @@ header .whatsapp-icon:hover {
     max-width: clamp(100px, 20vw, 250px); /* Tamaño máximo de la imagen con valores dinámicos */
     height: auto; /* Mantiene la proporción de la imagen */
     border-radius: 10px; /* Bordes redondeados */
+    filter: drop-shadow(0px 4px 6px rgba(226, 166, 3, 0.301)); /* Sombra de la imagen */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    flex-shrink: 0; /* Evita que la imagen se reduzca de tamaño
+    display: block; /* Asegura que la imagen esté en bloque para centrarla */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    cursor: pointer;
 }
+
+.pagina-2 .proyecto-imagen:hover{
+    position: relative; /* Permite que el efecto hover funcione correctamente */
+    transform: scale(2); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+    z-index: 10; /* Asegura que la imagen esté por encima de otros elementos */
+    will-change: transform; /* Mejora el rendimiento al aplicar transformaciones */
+    transition: transform 1.5s ease; /* Añade una transición suave al efecto hover */
+    filter: drop-shadow(0px 4px 6px rgba(226, 166, 3, 0.651)); /* Sombra de la imagen */
+}
+
 
 .pagina-2 .proyecto-texto {
     flex: 1; /* Ocupa el espacio restante */
@@ -209,485 +304,9 @@ header .whatsapp-icon:hover {
     margin: 0; /* Elimina el margen por defecto */
 }
 
-/*pagina-3*/
 
-.pagina-3 {
-    display: flex;
-    align-items: center; /* Centra los elementos horizontalmente */
-    text-align: center; /* Centra el texto */
-    background-color: #0000008f; /* Fondo semitransparente */
-    border-radius: 20px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interno */
-    filter: drop-shadow(0px 4px 6px rgba(37, 33, 33, 0.651)); /* Sombra de la página */
-    max-height: calc(100vh - 120px); /* Asegura que no pase de 60px del top y bottom */
-    margin: 60px; /* Espaciado externo */
-    overflow: auto; /* Permite scroll si el contenido excede el espacio */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-}
 
-/* Habilidades Grid */
 
-.habilidades-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 columnas por defecto */
-    gap: 10px; /* Espacio entre las figuras */
-    justify-items: center; /* Centra las figuras horizontalmente */
-    align-items: center; /* Centra las figuras verticalmente */
-    margin-top: 20px; /* Espaciado superior */
-}
-
-@media (max-width: 768px) {
-    .habilidades-grid {
-        grid-template-columns: repeat(3, 1fr); /* 2 columnas para pantallas pequeñas */
-        gap: 15px; /* Aumenta el espacio entre elementos */
-    }
-}
-
-@media (max-width: 350px) {
-    .habilidades-grid {
-        grid-template-columns: 2fr; /* 1 columna para pantallas muy pequeñas */
-        gap: 10px; /* Más espacio entre elementos */
-    }
-}
-
-.habilidades-grid figure {
-    display: flex;
-    flex-direction: column; /* Coloca la imagen y el texto en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    text-align: center; /* Centra el texto del figcaption */
-}
-
-.habilidad-imagen {
-    max-width: clamp(20px, 10vw, 50px); /* Tamaño máximo de las imágenes con valores dinámicos */
-    height: auto; /* Mantiene la proporción de las imágenes */
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: #fff;
-    margin: 5px 0; /* Espaciado entre la imagen y el texto */
-    padding: -10px !important; /* Espacio interno reducido */
-    filter: drop-shadow(0px 4px 6px rgba(221, 216, 216, 0.651)); /* Sombra de las imágenes */
-    transition: transform 0.3s ease; /* Animación al pasar el cursor */
-}
-
-.habilidad-imagen:hover {
-    transform: scale(1.1); /* Aumenta el tamaño al pasar el cursor */
-}
-
-.habilidades-grid figcaption {
-    margin-top: 10px; /* Espaciado entre la imagen y el texto */
-}
-
-/* Carrusel de imágenes */
-
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 600px; /* Reduce el ancho máximo del carrusel */
-    margin: 0 auto;
-    overflow: hidden; /* Oculta las imágenes fuera del contenedor */
-    border-radius: 15px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-    background-color: #ffffff;
-}
-
-.carousel-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%; /* Asegura que el contenedor no se desborde */
-}
-
-.carousel-images {
-    display: flex;
-    justify-content: center; /* Centra las imágenes horizontalmente */
-    align-items: center; /* Centra las imágenes verticalmente */
-    gap: 10px; /* Espacio entre las imágenes */
-}
-
-.carousel-images figure {
-    flex-shrink: 0;
-    width: 150px; /* Tamaño reducido de las imágenes */
-    text-align: center;
-    margin: 0;
-}
-
-.carousel-images img {
-    width: 100%; /* La imagen ocupa el 100% del ancho disponible */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: contain; /* Asegura que la imagen mantenga su proporción */
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgb(0, 0, 0);
-    cursor: pointer; /* Indica que la imagen es clicable */
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Botones de navegación */
-.carousel-prev,
-.carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-/*pagina 4*/
-
-.pagina-4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #0000008f; /* Fondo semitransparente */
-    border-radius: 20px;
-    padding: 20px;
-    filter: drop-shadow(0px 4px 6px rgba(255, 250, 250, 0.651));
-    max-height: calc(100vh - 120px);
-    margin: 60px;
-    overflow: auto;
-    box-sizing: border-box;
-}
-
-.pagina-4 h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el texto */
-}
-
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 800px; /* Aumenta el ancho máximo */
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 15px; /* Bordes más redondeados */
-    box-shadow: 0px 6px 10px rgba(255, 255, 255, 0.5); /* Sombra más pronunciada */
-    background-color: #000000; /* Fondo blanco para mayor contraste */
-}
-
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: 10px; /* Espaciado interno */
-}
-
-.carousel-images img {
-    width: 100%;
-    flex-shrink: 0;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para las imágenes */
-    transition: transform 0.3s ease-in-out;
-}
-
-.carousel-images img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
-}
-
-.carousel-images figcaption {
-    margin-top: 10px;
-}
-
-.carousel-prev,
-.carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(56, 19, 19, 0.7);
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-@media (max-width: 768px) {
-    .carousel {
-        max-width: 90%; /* Reduce el ancho máximo en pantallas pequeñas */
-    }
-
-    .carousel-prev,
-    .carousel-next {
-        padding: 10px; /* Reduce el tamaño de los botones */
-    }
-}
-
-@media (max-width: 480px) {
-    .pagina-4 h1 {
-        font-size: 1.5rem; /* Reduce el tamaño del título */
-    }
-
-    .carousel-images figcaption {
-        font-size: 0.8rem; /* Reduce el tamaño del texto */
-    }
-}
-
-/* Estilos para el modal */
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.918);
-    animation: zoomIn 0.3s ease-in-out;
-    position: absolute; /* Asegura que la imagen se pueda centrar */
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta la posición al centro */
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    color: #ff5722;
-}
-
-#modal-caption {
-    margin: 15px auto;
-    text-align: center;
-    color: #fff;
-    font-size: 1.2rem;
-} 
-
-.pagina-4 ul li{
-    list-style-type: none; /* Elimina los puntos de la lista */
-    padding: 0; /* Elimina el padding por defecto */
-    margin: 0; /* Elimina el margen por defecto */
-    display: flex;
-    flex-direction: column; /* Cambia a columna para apilar los elementos */
-    gap: 20px; /* Espacio entre los elementos */
-}
-
-/* Estilos para la tarjeta interactiva */
-.card-container {
-    perspective: 1000px; /* Añade perspectiva para el efecto 3D */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    margin-top: 20px;
-    margin-bottom: 30px; /* Espacio inferior */
-}
-
-.card {
-    width: 400px; /* Aumenta el ancho para hacerlo horizontal */
-    height: 200px; /* Reduce la altura */
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-    
-}
-
-.card:hover {
-    transform: rotateY(180deg); /* Gira la tarjeta al pasar el cursor */
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Oculta la cara trasera cuando no está visible */
-    display: flex; /* Asegura que el contenido esté centrado */
-    justify-content: center;
-    align-items: center;
-}
-
-.card-front img {
-    width: 100%; /* La imagen ocupa todo el ancho de card-front */
-    height: 100%; /* La imagen ocupa toda la altura de card-front */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
-}
-
-.card-back {
-    width: clamp(250px, 50vw, 400px); /* Ancho responsivo similar a card-front */
-    height: clamp(100px, 30vh, 300px); /* Altura responsiva similar a card-front */
-    background-color: #000000;
-    color: #ffffff;
-    transform: rotateY(180deg); /* Gira la cara trasera */
-    display: flex;
-    justify-content: space-between; /* Divide en dos secciones */
-    align-items: center;
-    flex-direction: row; /* Alinea en fila */
-    padding: 15px; /* Ajusta el padding para mantener proporción */
-    gap: 15px; /* Ajusta el espacio entre elementos */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-    left: clamp(10px, 2vw, 20px); /* Posición responsiva hacia la izquierda */
-}
-
-.card-back .left-section {
-    position: relative; /* Habilita posicionamiento relativo para las imágenes */
-    display: flex; /* Asegura que los elementos se alineen con flexbox */
-    justify-content: center; /* Centra horizontalmente las imágenes */
-    align-items: center; /* Centra verticalmente */
-    flex-direction: column; /* Alinea las imágenes en columna */
-    justify-content: center; /* Centra las imágenes verticalmente */
-    align-items: center; /* Centra las imágenes horizontalmente */
-    height: 100%; /* Ocupa toda la altura de la sección */
-}
-
-.card-back .left-section img {
-    width: clamp(70px, 10vw, 90px); /* Ancho responsivo de las imágenes */
-    height: auto; /* Mantiene la proporción */
-}
-
-.card-back .left-section img:first-child {
-    width: clamp(60px, 8vw, 80px); /* Ancho responsivo de la primera imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: cover;
-}
-
-.card-back .left-section img:last-child {
-    width: clamp(60px, 150px, 80px); /* Ancho responsivo de la última imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: cover;
-}
-
-.card-back .right-section {
-    display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-    align-items: flex-start; /* Alinea los elementos hijos hacia la izquierda */
-}
-
-.card-back .right-section p {
-    margin: 5px 0; /* Espaciado entre textos */
-    text-align: center;
-}
-
-.card-back .right-section .links {
-    display: flex;
-    flex-direction: column; /* Cambia a columna para apilar los enlaces */
-    gap: 10px; /* Espaciado entre enlaces */
-    margin-top: 10px;
-    align-items: flex-start; /* Asegura que los enlaces se alineen a la izquierda */
-}
-
-.card-back .right-section .links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.5rem; /* Reduce el tamaño del texto */
-    transition: color 0.3s ease;
-}
-
-.card-back .right-section .links a:hover {
-    color: #ff5722; /* Cambia de color al pasar el cursor */
-}
-
-.card-back .divider {
-    width: clamp(2px, 0.5vw, 4px); /* Ancho responsivo de la línea divisoria */
-    height: clamp(80%, 90%, 90%); /* Altura responsiva */
-    background-color: #ffffff;
-    opacity: 0.5; /* Línea divisoria */
-    position: relative;
-    left: 0px; /* Mueve la línea 20px hacia la izquierda */
-}
-
-.card-links {
-    display: flex;
-    gap: 15px;
-}
-
-.card-links a img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
-}
-
-.card-links a img:hover {
-    transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor */
-}
-
-h1 {
-    position: static; /* Asegura que los h1 sean estáticos en su posición */
-}
-
-.pagina-5 {
-    margin: 60px; /* Mantiene el margen horizontal */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    border-radius: 20px;
-    filter: drop-shadow(0px 4px 6px rgb(124, 120, 120)); /* Sombra de la página */
-    max-height: calc(100vh - 120px); /* Asegura que no pase de 60px del top y bottom */
-    margin-top: 60px; /* Espacio desde el borde superior */
-    margin-bottom: 60px; /* Espacio desde el borde inferior */
-    overflow: auto; /* Permite scroll si el contenido excede el espacio */
-    padding: 20px; /* Espacio interno */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */ 
-}
 
 
 
