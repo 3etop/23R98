@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../Image/backgraund/DeWatermark.ai_1751309049878.jpeg'); /* Ruta de la imagen de fondo */
+    background-image: url('../Image/backgraund/upscalemedia-transformed.jpeg'); /* Ruta de la imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
