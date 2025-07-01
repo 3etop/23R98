@@ -86,38 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transform = 'rotateY(0deg)';
     });
 
-    // Botón de instalación PWA y mensaje de soporte
-    let deferredPrompt;
-    const installBtn = document.getElementById('installPwaBtn');
-    const pwaMsg = document.getElementById('pwaMsg');
-    let pwaSupported = false;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installBtn.style.display = 'flex';
-        pwaSupported = true;
-        if (pwaMsg) pwaMsg.style.display = 'none';
-    });
-    installBtn && installBtn.addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                installBtn.style.display = 'none';
-            }
-            deferredPrompt = null;
-        }
-    });
-    window.addEventListener('appinstalled', () => {
-        installBtn.style.display = 'none';
-    });
-    // Mostrar advertencia si no es soportado
-    window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            if (!pwaSupported) {
-                if (pwaMsg) pwaMsg.innerText = 'Tu navegador no soporta instalación como app o ya está instalada.';
-                if (pwaMsg) pwaMsg.style.display = 'block';
-            }
-        }, 2000);
-    });
+    // Eliminar toda la lógica relacionada con PWA, manifest y botón de instalar app
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
 });

@@ -25,15 +25,15 @@ h3{
 p {
     text-align: center;
     color: #f3e6c1;
-    line-height: 1.7;
+    line-height: 1.2;
     margin: 14px 0 14px 0;
     letter-spacing: 0.02em;
     font-weight: 400;
     text-shadow: 0 1px 4px rgba(0,0,0,0.18);
-    
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 2px 2px;
     display: block;
+    font-size: clamp(0.5rem, 2vw, 1.2rem);
 }
 /*eader___________________________________________________*/
 
@@ -98,40 +98,6 @@ header .button-link{
     justify-content: unset;
 }
 
-/*Botón flotante moderno y responsivo para instalar la app */
-#installPwaBtn {
-    position: fixed;
-    height: 40px;
-    bottom: 35px;
-    left: 5px;
-    z-index: 3000;
-    padding: 14px 22px;
-    background: linear-gradient(90deg, #f8cc52 60%, #ffe9b0 100%);
-    color: #222;
-    border: none;
-    border-radius: 32px;
-    box-shadow: 0 4px 16px 2px rgba(37, 37, 37, 0.795);
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    letter-spacing: 0.02em;
-    display: none;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    outline: none;
-    gap: 10px;
-    align-items: center;
-    display: flex;
-}
-#installPwaBtn:hover, #installPwaBtn:focus {
-    background: linear-gradient(90deg, #ffe9b0 0%, #f8cc52 100%);
-    box-shadow: 0 8px 24px 4px rgba(248, 204, 82, 0.25);
-    transform: scale(1.06);
-}
-#installPwaBtn i {
-    font-size: 1.5rem;
-    color: #222;
-}
-
 /*Swipper_____________________________________________________________________________________*/
 
 .swiper-container {
@@ -188,13 +154,13 @@ header .button-link{
 
 /* Estilos personalizados para la paginación */
 .swiper-pagination {
-    bottom: 10px !important; /* Ajusta la posición vertical */
+    bottom: 5px !important; /* Ajusta la posición vertical */
     text-align: center !important; /* Centra la paginación */
 }
 
 .swiper-pagination-bullet {
-    max-width: 15px !important; /* Ancho de los puntos */
-    max-height: 15px !important; /* Altura de los puntos */
+    width: clamp(4px, 1vw, 15px) !important;
+    height: clamp(4px, 1vw, 15px) !important;
     background: #ffffff !important; /* Color de los puntos */
     opacity: 0.7 !important; /* Transparencia de los puntos */
     transition: opacity 0.3s, transform 0.3s !important; /* Animación al interactuar */
@@ -255,14 +221,14 @@ header .button-link{
     margin: 0; /* Elimina el margen por defecto */
     display: flex;
     flex-direction: column; /* Cambia a columna para apilar los elementos */
-    gap: 20px; /* Espacio entre los elementos */
+    gap: 0px; /* Espacio entre los elementos */
 }
 
 .pagina-2 .proyectos-lista li {
     display: flex; /* Alinea los elementos en fila */
     align-items: center; /* Centra verticalmente */
-    gap: 20px; /* Espacio entre la imagen y el texto */
-    padding: 10px; /* Espacio interno */
+    gap: 5px; /* Espacio entre la imagen y el texto */
+    padding: 5px; /* Espacio interno */
     
     border-radius: 10px; /* Bordes redondeados */
     filter: drop-shadow(0px 4px 6px rgba(221, 216, 216, 0.651)); /* Sombra de los elementos de la lista */

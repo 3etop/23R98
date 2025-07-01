@@ -1,7 +1,6 @@
 {
   "name": "23R98 Rental de Equipos Cinematográficos",
   "short_name": "23R98 Rental",
-  "description": "Alquiler de equipos de filmación profesional en Bogotá. Cámaras, lentes, luces, audio y accesorios para cine y video.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000000",
