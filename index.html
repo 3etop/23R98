@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Meta etiquetas básicas -->
     <meta charset="UTF-8">
@@ -26,9 +26,8 @@
     <title>23R98.</title>
 
     <!-- Enlaces a hojas de estilo -->
-    <link rel="stylesheet" href="estilos/styles.css">
     <link rel="stylesheet" href="Normalize/normalize.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="estilos/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
 
     <!-- Google Analytics -->
@@ -41,31 +40,42 @@
     </script>
 </head>
 <body>
-    <header>
-        <img src="Image/Imagenes/logo.png" alt="Logo o imagen del header" class="logo">
-    </header>
-    <div class="whatsapp-icon">
-        <a href="https://api.whatsapp.com/send?phone=3125338978&text=Hola! vengo desde su sitio web de rental de equipos y me gustaría chatear con ustedes."
-            target="_blank"
-            aria-label="Chatea por WhatsApp">
-            <i class="bi bi-whatsapp"></i>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="23R98 Rental, inicio">
+            <img src="Image/Imagenes/logo.png" alt="23R98 Rental" class="logo">
         </a>
-    </div>
-    <div class="swiper-container">
+        <nav class="site-nav" aria-label="Navegación principal">
+            <a href="#catalogo">Equipos</a>
+            <a class="nav-quote" href="https://api.whatsapp.com/send?phone=3125338978&text=Hola%2C%20quiero%20cotizar%20equipos%20para%20mi%20producci%C3%B3n." target="_blank" rel="noopener noreferrer">Cotiza tu proyecto <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+    <a class="whatsapp-icon" href="https://api.whatsapp.com/send?phone=3125338978&text=Hola!%20vengo%20desde%20su%20sitio%20web%20de%20rental%20de%20equipos%20y%20me%20gustar%C3%ADa%20chatear%20con%20ustedes."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chatea por WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+    </a>
+    <main class="swiper-container" id="catalogo">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <section class="swiper-slide hero-slide" aria-labelledby="hero-title">
                 <div class="pagina-1">
-                    <h1>23<span style="color: rgba(236, 185, 15, 0.863);">R</span>98</h1>
-                    <p class="titulo">Rental de equipos cinematograficos ubicados en Bogotá-Colombia</p>
+                    <p class="eyebrow"><span></span> RENTAL AUDIOVISUAL · BOGOTÁ, COLOMBIA</p>
+                    <h1 id="hero-title">Tu próxima historia<br>empieza con <span>23R98.</span></h1>
+                    <p class="titulo">Equipos cinematográficos profesionales para ideas que merecen verse en grande.</p>
                     <p class="descripcion">
-                        23R98 es tu aliado creativo en el mundo audiovisual. Nos especializamos en el alquiler de equipos cinematográficos de alta gama para producciones que buscan calidad sin compromisos. Desde cámaras de cine digital, ópticas profesionales y sistemas de iluminación avanzada hasta estabilizadores, monitores y accesorios, ofrecemos una solución integral para realizadores, productoras y agencias.
-
+                        Cámaras, ópticas, iluminación, audio y accesorios seleccionados para acompañar cada etapa de tu producción.
+                        Tecnología confiable y atención cercana para que te concentres en crear.
                     </p>
-                    <p>
-                        Nuestra misión es brindar tecnología de punta con un servicio personalizado, ágil y confiable. Sea un cortometraje independiente, un comercial de alto impacto o una producción documental, en 23R98 acompañamos tu visión con herramientas profesionales precisas para tus creaciones.
-
-                    </p>
+                    <a class="hero-cta" href="#equipos">Explora los equipos <span aria-hidden="true">↓</span></a>
+                    <div class="hero-note"><span>01</span> HERRAMIENTAS PARA CONTAR MEJORES HISTORIAS</div>
                 </div>
+            </section>
+            <div class="catalog-heading" id="equipos">
+                <div>
+                    <p class="eyebrow">LISTOS PARA EL PRÓXIMO RODAJE</p>
+                    <h2>Encuentra tu equipo</h2>
+                </div>
+                <p>Un buen equipo hace posible una gran toma. Cuéntanos qué necesitas y armamos el kit ideal para tu producción.</p>
             </div>
             <div class="swiper-slide">
                 <div class="pagina-2">
@@ -82,7 +92,7 @@
             </div>
             <div class="swiper-slide">
                 <div class="pagina-2">
-                    <h2>Lentess Rokinon</h2>
+                    <h2>Lentes Rokinon</h2>
                     <ul class="proyectos-lista">
                         <li>
                             <img src="Image/imagenes 23R98/Kit_de_6_lentes_Rokinon_Cine_DS___Canon_EF_Lentes-removebg-preview.png" alt="Imagen del proyecto 1" class="proyecto-imagen">
@@ -485,27 +495,18 @@
                 </div>
             </div>
         </div>
-        <!-- Botones personalizados -->
-        <div class="custom-next"></div>
-        <div class="custom-prev"></div>
-        <!-- Paginación -->
-        <div class="swiper-pagination"></div>
     </div>
+    <footer class="site-footer">
+        <span>23R98 RENTAL <span aria-hidden="true">·</span> Bogotá, Colombia</span>
+        <a href="https://api.whatsapp.com/send?phone=3125338978&text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20el%20rental%2023R98." target="_blank" rel="noopener noreferrer">Hablemos de tu producción <span aria-hidden="true">↗</span></a>
+    </footer>
 
     <!-- Modal para mostrar imagen ampliada -->
-    <div class="modal" id="image-modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-image">
+    <div class="modal" id="image-modal" role="dialog" aria-modal="true" aria-label="Vista ampliada del equipo" hidden>
+        <button class="modal-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+        <img class="modal-content" id="modal-image" alt="">
         <div id="modal-caption"></div>
     </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/index.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js');
-            });
-        }
-    </script>
 </body>
 </html>

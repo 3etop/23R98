@@ -1,285 +1,596 @@
+:root {
+    color-scheme: dark;
+    --color-bg: #111210;
+    --color-panel: #1a1b18;
+    --color-panel-light: #22231f;
+    --color-text: #f4f1e9;
+    --color-muted: #a7a79e;
+    --color-accent: #e8b923;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --content-width: 1240px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('../Image/backgraund/upscalemedia-transformed.jpeg'); /* Ruta de la imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    width: 100%; /* Cambiar a 100% para evitar barras de scroll horizontales */
-    height: 100%; /* Cambiar a 100% para evitar barras de scroll verticales */
-    overflow: hidden; /* Eliminar cualquier barra de scroll */
+    background:
+        radial-gradient(ellipse at 15% 0%, rgba(232, 185, 35, 0.08), transparent 34rem),
+        var(--color-bg);
+    color: var(--color-text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
-h2 {
-    color: rgb(240, 194, 43) !important;
+body.modal-open {
+    overflow: hidden;
 }
 
-h3{
-    color: #f3e6c1 !important;
-    text-align: center;
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    margin: 20px 0; /* Espacio superior e inferior */
-    text-shadow: 0 1px 4px rgba(0,0,0,0.18); /* Sombra del texto */
+a {
+    color: inherit;
 }
 
-p {
-    text-align: center;
-    color: #f3e6c1;
-    line-height: 1.2;
-    margin: 14px 0 14px 0;
-    letter-spacing: 0.02em;
-    font-weight: 400;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
-    border-radius: 8px;
-    padding: 2px 2px;
+.site-header {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    display: flex;
+    width: 100%;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px max(5vw, calc((100vw - var(--content-width)) / 2));
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(17, 18, 16, 0.88);
+    backdrop-filter: blur(16px);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+.site-header .logo {
     display: block;
-    font-size: clamp(0.5rem, 2vw, 1.2rem);
-}
-/*eader___________________________________________________*/
-
-header {
-    position: relative;
-    background-color: #000000c0;
-    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.651); 
-    padding: 2px 0;
-    text-align: center;
+    width: 86px;
+    height: 48px;
+    object-fit: contain;
 }
 
-header .logo{
-    max-width: 100px; /* Ajustar el tamaño de la imagen del logo */
-    max-height: auto;
-    margin: 0 auto; /* Centrar la imagen del logo */
-    display: block; /* Asegura que la imagen esté en bloque para centrarla */
-    border-radius: 8px;
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 0.86rem;
+    font-weight: 600;
 }
 
-header .button-link{
-    position: absolute;
-    top: 10px; /* Ajustar la posición vertical del botón */
-    right: 10px; /* Ajustar la posición horizontal del botón */
-    font-size: 1rem;
+.site-nav a,
+.site-footer a {
     text-decoration: none;
-    padding: 10px 10px;
-    color: #000000;
-    background-color: #ffffff; /* Color de fondo del botón */
-    border-radius: 5px; /* Bordes redondeados del botón */
-    filter: drop-shadow(0px 4px 6px rgba(224, 218, 218, 0.562)); /* Sombra del botón */
+    transition: color 180ms ease;
 }
 
-/* Estilo clásico simple para el botón flotante de WhatsApp */
-.whatsapp-icon {
-    position: fixed;
-    bottom: 35px;
-    right: 5px;
-    background: #25d366;
-    color: #fff !important;
-    font-size: 2rem;
-    border-radius: 50%;
-    padding: 10px 12px;
-    z-index: 2000;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    display: inline-block;
-    transition: none;
-}
-.whatsapp-icon:hover {
-    background: #128c7e;
-    color: #fff;
-    transform: none;
-    box-shadow: none;
-}
-.whatsapp-icon i {
-    font-size: 2rem;
-    line-height: 1;
-    display: inline-block;
-    align-items: unset;
-    justify-content: unset;
+.site-nav a:hover,
+.site-footer a:hover {
+    color: var(--color-accent);
 }
 
-/*Swipper_____________________________________________________________________________________*/
+.site-nav .nav-quote {
+    padding: 11px 16px;
+    border: 1px solid rgba(232, 185, 35, 0.55);
+    border-radius: 3px;
+    color: var(--color-accent);
+}
+
+.nav-quote span,
+.site-footer a span {
+    margin-left: 8px;
+}
 
 .swiper-container {
-    max-width: 100%;
-    height: 100vh;
-    padding: 0px 0px; /* Espacio a los lados */
-    overflow: hidden; /* Evita que el contenido se pase a otra página */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    width: min(100% - 48px, var(--content-width));
+    margin: 0 auto;
+}
+
+.swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .swiper-slide {
-    max-width: 100vw; /* Asegura que cada página ocupe el ancho completo de la ventana */
+    min-width: 0;
+}
+
+.hero-slide,
+.catalog-heading {
+    grid-column: 1 / -1;
+}
+
+.pagina-1 {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    color: #fff;
-}
-
-.swiper-pagination-bullet {
-    background: #fff;
-}
-
-.custom-next,
-.custom-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-size: cover;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 5px;
-}
-
-.custom-next {
-    right: 10px;
-    background-image: url('../Image/Imagenes/mano-derecha.png'); /* Ruta de la imagen del botón "siguiente" */
-    filter: drop-shadow(0px 4px 6px rgb(224, 218, 218)); /* Sombra del botón "anterior" */
-}
-
-.custom-prev {
-    left: 10px;
-    background-image: url('../Image/Imagenes/mano-izquierda.png'); /* Ruta de la imagen del botón "anterior" */
-    filter: drop-shadow(0px 4px 6px rgb(224, 218, 218)); /* Sombra del botón "anterior" */
-}
-
-/* Estilos personalizados para la paginación */
-.swiper-pagination {
-    bottom: 5px !important; /* Ajusta la posición vertical */
-    text-align: center !important; /* Centra la paginación */
-}
-
-.swiper-pagination-bullet {
-    width: clamp(4px, 1vw, 15px) !important;
-    height: clamp(4px, 1vw, 15px) !important;
-    background: #ffffff !important; /* Color de los puntos */
-    opacity: 0.7 !important; /* Transparencia de los puntos */
-    transition: opacity 0.3s, transform 0.3s !important; /* Animación al interactuar */
-    filter: drop-shadow(0px 4px 6px rgb(2, 1, 1)) !important; /* Sombra del botón "anterior" */
-
-}
-
-.swiper-pagination-bullet-active {
-    background: #000000 !important; /* Color del punto activo */
-    border: 1px solid #f8cc52 !important; /* Borde del punto activo */
-    opacity: 1 !important; /* Opacidad completa para el punto activo */
-    transform: scale(2) !important; /* Aumenta el tamaño del punto activo */
-}
-
-/*Pagina-1________________________________________________________________________________*/
-
-.pagina-1, .pagina-2, .pagina-3, .pagina-4{
-    margin: 60px; /* Mantiene el margen horizontal */
-    display: flex;
+    min-height: clamp(420px, 57vw, 650px);
     flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    text-align: center;
-    background-color: #000000a8;
-    border-radius: 20px;
-    border-color: #ffffff; /* Color del borde */
-    border-style: solid; /* Estilo del borde */ 
-    border-width: 0.1px; /* Ancho del borde */
-    box-shadow: 0px 4px 6px rgba(37, 33, 33, 0.904); /* Sombra de la página */
-    filter: drop-shadow(0px 4px 6px rgb(37, 33, 33)); /* Sombra de la página */
-    max-height: calc(100vh - 120px); /* Asegura que no pase de 60px del top y bottom */
-    margin-top: 60px; /* Espacio desde el borde superior */
-    margin-bottom: 60px; /* Espacio desde el borde inferior */
-    overflow: auto; /* Permite scroll si el contenido excede el espacio */
-    padding: 20px; /* Espacio interno */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */ 
+    overflow: hidden;
+    padding: clamp(36px, 8vw, 100px);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background:
+        linear-gradient(90deg, rgba(13, 14, 13, 0.96) 0%, rgba(13, 14, 13, 0.86) 42%, rgba(13, 14, 13, 0.2) 100%),
+        linear-gradient(0deg, rgba(13, 14, 13, 0.18), rgba(13, 14, 13, 0.18)),
+        url("../Image/backgraund/upscalemedia-transformed.jpeg") center 44% / cover,
+        var(--color-panel);
 }
 
-.pagina-1 .imagen-presentacion{
-    max-width: clamp(100px, 20vw, 200px);
-    max-height: auto;
-    margin: 20px auto; /* Centrar la imagen */
-    display: block; /* Asegura que la imagen esté en bloque para centrarla */
-    border-radius: 20px; /* Bordes redondeados de la imagen */
-    filter: drop-shadow(0px 4px 6px rgba(221, 216, 216, 0.651)); /* Sombra de la imagen */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+.pagina-1::after {
+    position: absolute;
+    right: 8%;
+    bottom: -80px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(232, 185, 35, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(232, 185, 35, 0.035), 0 0 0 70px rgba(232, 185, 35, 0.025);
+    content: "";
+    pointer-events: none;
 }
 
-/*pagina-2___________________________________________________________*/
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    color: var(--color-accent);
+    font-size: 0.71rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+}
+
+.hero-slide .eyebrow span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 15px rgba(232, 185, 35, 0.8);
+}
+
+.pagina-1 h1 {
+    max-width: 980px;
+    margin: 0;
+    font-size: clamp(2.8rem, 6.4vw, 5.75rem);
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 0.99;
+}
+
+.pagina-1 h1 span {
+    color: var(--color-accent);
+}
+
+.pagina-1 p.titulo {
+    max-width: 540px;
+    margin: 24px 0 0;
+    color: #f3f0e8;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.pagina-1 p.descripcion {
+    max-width: 540px;
+    margin: 14px 0 0;
+    color: #c2c1b9;
+    font-size: 0.97rem;
+    line-height: 1.75;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 14px 18px;
+    border-radius: 3px;
+    background: var(--color-accent);
+    color: #15140e;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+    background: #f3ca4b;
+}
+
+.hero-note {
+    position: absolute;
+    right: 28px;
+    bottom: 25px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.hero-note span {
+    margin-right: 9px;
+    color: var(--color-accent);
+}
+
+.catalog-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 48px 0 4px;
+    scroll-margin-top: 96px;
+}
+
+.catalog-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.catalog-heading h2 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: -0.04em;
+}
+
+.catalog-heading > p {
+    max-width: 390px;
+    margin: 0 0 4px;
+    color: var(--color-muted);
+    font-size: 0.91rem;
+    line-height: 1.7;
+}
 
 .pagina-2 {
-    position: relative; /* Permite que el efecto hover funcione correctamente */
-    overflow: visible;
-}
-
-.pagina-2 .proyectos-lista {
-    list-style-type: none; /* Elimina los puntos de la lista */
-    padding: 0; /* Elimina el padding por defecto */
-    margin: 0; /* Elimina el margen por defecto */
     display: flex;
-    flex-direction: column; /* Cambia a columna para apilar los elementos */
-    gap: 0px; /* Espacio entre los elementos */
+    height: 100%;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background: linear-gradient(145deg, var(--color-panel-light), var(--color-panel) 65%);
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
 }
 
-.pagina-2 .proyectos-lista li {
-    display: flex; /* Alinea los elementos en fila */
-    align-items: center; /* Centra verticalmente */
-    gap: 5px; /* Espacio entre la imagen y el texto */
-    padding: 5px; /* Espacio interno */
-    
-    border-radius: 10px; /* Bordes redondeados */
-    filter: drop-shadow(0px 4px 6px rgba(221, 216, 216, 0.651)); /* Sombra de los elementos de la lista */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+.pagina-2:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232, 185, 35, 0.45);
+    background: linear-gradient(145deg, #292a24, var(--color-panel) 70%);
 }
 
-.pagina-2 .proyecto-imagen {
-    max-width: clamp(100px, 20vw, 250px); /* Tamaño máximo de la imagen con valores dinámicos */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 10px; /* Bordes redondeados */
-    filter: drop-shadow(0px 4px 6px rgba(226, 166, 3, 0.301)); /* Sombra de la imagen */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-    flex-shrink: 0; /* Evita que la imagen se reduzca de tamaño
-    display: block; /* Asegura que la imagen esté en bloque para centrarla */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+.pagina-2 > h2 {
+    min-height: 2.8em;
+    margin: 0 0 12px;
+    color: var(--color-text);
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.4;
+}
+
+.proyectos-lista {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.proyectos-lista li {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.proyecto-imagen {
+    display: block;
+    width: 100%;
+    height: clamp(175px, 19vw, 230px);
+    margin: 0 0 16px;
+    border-radius: 3px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.07), transparent 68%);
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 220ms ease;
+}
+
+.pagina-2:hover .proyecto-imagen {
+    transform: scale(1.035);
+}
+
+.proyecto-texto {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.proyecto-texto p {
+    margin: 0 0 20px;
+    color: var(--color-muted);
+    font-size: 0.84rem;
+    line-height: 1.65;
+}
+
+.quote-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.quote-link:hover {
+    color: #f5d56b;
+}
+
+.site-footer {
+    display: flex;
+    max-width: var(--content-width);
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 58px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+}
+
+.site-footer a {
+    color: var(--color-text);
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    z-index: 30;
+    right: 24px;
+    bottom: 24px;
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.whatsapp-icon:hover {
+    transform: translateY(-3px);
+    background: #1fb85a;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    z-index: 50;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 12px;
+    padding: 56px 24px 24px;
+    background: rgba(8, 9, 8, 0.94);
+    backdrop-filter: blur(12px);
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-panel);
+    color: var(--color-text);
+    font-size: 1.8rem;
+    line-height: 1;
     cursor: pointer;
 }
 
-.pagina-2 .proyecto-imagen:hover{
-    position: relative; /* Permite que el efecto hover funcione correctamente */
-    transform: scale(2); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
-    z-index: 10; /* Asegura que la imagen esté por encima de otros elementos */
-    will-change: transform; /* Mejora el rendimiento al aplicar transformaciones */
-    transition: transform 1.5s ease; /* Añade una transición suave al efecto hover */
-    filter: drop-shadow(0px 4px 6px rgba(226, 166, 3, 0.651)); /* Sombra de la imagen */
+.modal-content {
+    max-width: min(100%, 1000px);
+    max-height: 75vh;
+    object-fit: contain;
 }
 
-
-.pagina-2 .proyecto-texto {
-    flex: 1; /* Ocupa el espacio restante */
+#modal-caption {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-.pagina-2 .proyecto-texto h2 {
-    margin: 0 0 10px 0; /* Espaciado inferior */
-
+a:focus-visible,
+button:focus-visible,
+.proyecto-imagen:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
 }
 
-.pagina-2 .proyecto-texto p {
-    margin: 0; /* Elimina el margen por defecto */
+@media (min-width: 1080px) {
+    .swiper-wrapper {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .hero-slide,
+    .catalog-heading {
+        grid-column: 1 / -1;
+    }
 }
 
+@media (max-width: 760px) {
+    .swiper-container {
+        width: min(100% - 32px, var(--content-width));
+    }
 
+    .swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
 
+    .pagina-1 {
+        min-height: 500px;
+        padding: 36px 28px 70px;
+        background-position: 58% center;
+    }
 
+    .pagina-1::after {
+        right: -160px;
+        bottom: -130px;
+    }
 
+    .pagina-1 p.descripcion {
+        font-size: 0.9rem;
+    }
 
+    .catalog-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 38px;
+    }
 
+    .catalog-heading > p {
+        max-width: 540px;
+    }
 
+    .pagina-2 {
+        padding: 16px;
+    }
 
+    .proyecto-imagen {
+        height: 190px;
+    }
 
+    .site-footer {
+        margin-top: 40px;
+        padding-inline: 20px;
+    }
+}
 
+@media (max-width: 480px) {
+    html {
+        scroll-padding-top: 74px;
+    }
 
+    .site-header {
+        min-height: 66px;
+        padding: 8px 16px;
+    }
 
+    .site-header .logo {
+        width: 68px;
+        height: 44px;
+    }
 
+    .site-nav {
+        gap: 16px;
+        font-size: 0.8rem;
+    }
+
+    .site-nav .nav-quote {
+        padding: 9px 11px;
+    }
+
+    .swiper-wrapper {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .pagina-1 {
+        min-height: 475px;
+        padding: 32px 23px 70px;
+    }
+
+    .pagina-1 h1 {
+        font-size: clamp(2.65rem, 13vw, 4rem);
+    }
+
+    .pagina-1 p.titulo {
+        margin-top: 18px;
+        font-size: 1rem;
+    }
+
+    .pagina-1 p.descripcion {
+        font-size: 0.85rem;
+        line-height: 1.65;
+    }
+
+    .hero-note {
+        right: 18px;
+        bottom: 18px;
+        font-size: 0.54rem;
+    }
+
+    .catalog-heading {
+        padding-top: 32px;
+    }
+
+    .pagina-2 {
+        padding: 18px;
+    }
+
+    .pagina-2 > h2 {
+        min-height: 0;
+    }
+
+    .proyecto-imagen {
+        height: 220px;
+    }
+
+    .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 32px;
+    }
+
+    .whatsapp-icon {
+        right: 16px;
+        bottom: 16px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
